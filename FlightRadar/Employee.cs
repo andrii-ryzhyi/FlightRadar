@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlightRadar
 {
-    public class Employee : Person, Iinformable
+    public class Employee : Person, Informable
     {
         public double Salary { get; private set; }
         public int Experience { get; set; }

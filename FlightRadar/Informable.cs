@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlightRadar
 {
-    public interface Iinformable
+    public interface Informable
     {
         List<Notification> Notifications { get; set; }
         string FirstName { get; }

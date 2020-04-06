@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlightRadar
 {
-    public class Passenger : Person, Iinformable
+    public class Passenger : Person, Informable
     {
         public Flight Flight { get; private set; }
         private double _cash;
@@ -19,8 +19,15 @@ namespace FlightRadar
 
         public void BuyTicket(Flight flight)
         {
-            flight.AddPassenger(this);
-            Flight = flight;
+            try
+            {
+                flight.AddPassenger(this);
+                Flight = flight;
+            }
+            catch (HoldMoneyException ex)
+            {
+                Console.WriteLine("Ticket cannot be purchased");
+            }
         }
 
         public bool Hold(double amount)

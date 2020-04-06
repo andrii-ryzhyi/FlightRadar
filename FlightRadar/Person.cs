@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace FlightRadar
 {
     public delegate void AlertHandler(Notification notification);
-    public abstract class Person : Iinformable
+    public abstract class Person : Informable
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

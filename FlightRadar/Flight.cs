@@ -33,7 +33,10 @@ namespace FlightRadar
 
         public void AddPassenger(Passenger passenger)
         {
-            passenger.Hold(TicketPrice);
+            if (!passenger.Hold(TicketPrice))
+            {
+                throw new HoldMoneyException("Not Enogh money");
+            }
             Passengers.Add(passenger);
             Alert += passenger.Alert;
             

@@ -45,7 +45,8 @@
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeExtensions.cs" />
     <Compile Include="Flight.cs" />
-    <Compile Include="Iinformable.cs" />
+    <Compile Include="HoldMoneyException.cs" />
+    <Compile Include="Informable.cs" />
     <Compile Include="Job.cs" />
     <Compile Include="Notification.cs" />
     <Compile Include="Passenger.cs" />
