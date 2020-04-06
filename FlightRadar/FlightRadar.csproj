@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Employee.cs" />
+    <Compile Include="EmployeeExtensions.cs" />
     <Compile Include="Flight.cs" />
     <Compile Include="Iinformable.cs" />
     <Compile Include="Job.cs" />

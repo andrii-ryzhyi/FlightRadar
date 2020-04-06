@@ -6,31 +6,51 @@ using System.Threading.Tasks;
 
 namespace FlightRadar
 {
+    public delegate void EmployeeAlert(Notification notification);
     public class Flight
     {
         private int _id;
         public int Capacity { get; set; }
         public List<Person> Passengers;
+        public List<Employee> Crew;
         public string Destination { get; private set; }
         public AlertHandler Alert { get; set; }
+        public EmployeeAlert InternalAlert { get; set; }
+        public double TicketPrice { get; private set; }
 
-        public Flight(int id, string destination, int capacity)
+        private static int flightId;
+
+        public Flight(string destination, int capacity, double ticketPrice)
         {
-            _id = id;
+
+            _id = ++flightId;
             Destination = destination;
             Capacity = capacity;
+            TicketPrice = ticketPrice;
             Passengers = new List<Person>();
+            Crew = new List<Employee>();
         }
 
-        public void AddPassenger(Person passenger)
+        public void AddPassenger(Passenger passenger)
         {
+            passenger.Hold(TicketPrice);
             Passengers.Add(passenger);
             Alert += passenger.Alert;
+            
+        }
+        public void AddCrew(Employee employee)
+        {
+            Crew.Add(employee);
+            InternalAlert += employee.OnInternalNotification;
         }
 
-        public void SendAlertToPassengers(Notification notification)
+        public void SendAlertToPassengers(string notification)
         {
-            Alert?.Invoke(notification);
+            Alert?.Invoke(new Notification(notification));
+        }
+        public void SendAlertToCrew(string notification)
+        {
+            InternalAlert?.Invoke(new Notification(notification));
         }
     }
 }

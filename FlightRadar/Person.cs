@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlightRadar
 {
-    public delegate void AlertHandler(Notification info);
+    public delegate void AlertHandler(Notification notification);
     public abstract class Person : Iinformable
     {
         public string FirstName { get; set; }
@@ -20,6 +20,7 @@ namespace FlightRadar
             FirstName = name;
             LastName = lastName;
             Age = age;
+            Notifications = new List<Notification>();
             Alert += OnNewNotification;
         }
 

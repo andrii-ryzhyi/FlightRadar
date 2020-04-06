@@ -3,3 +3,7 @@
 ################################################################################
 
 /FlightRadar/obj/Debug
+/.vs/FlightRadar/v15/Server/sqlite3
+/.vs/FlightRadar/v15
+/FlightRadar/bin/Debug
+/FlightRadar/Properties
