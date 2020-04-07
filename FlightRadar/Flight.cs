@@ -37,8 +37,15 @@ namespace FlightRadar
             {
                 throw new HoldMoneyException("Not Enogh money");
             }
-            Passengers.Add(passenger);
-            Alert += passenger.Alert;
+            if (Passengers.Count < Capacity)
+            {
+                Passengers.Add(passenger);
+                Alert += passenger.Alert;
+            }
+            else
+            {
+                throw new FlightCapacityException("No free seats");
+            }
             
         }
         public void AddCrew(Employee employee)

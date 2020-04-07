@@ -26,7 +26,11 @@ namespace FlightRadar
             }
             catch (HoldMoneyException ex)
             {
-                Console.WriteLine("Ticket cannot be purchased");
+                Console.WriteLine("Ticket cannot be purchased: {0}", ex.Message);
+            }
+            catch (FlightCapacityException ex)
+            {
+                Console.WriteLine("No available seats! {0}", ex.Message);
             }
         }
 
